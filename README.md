@@ -1,2 +1,2 @@
-# Ayah-Identification-
+# AyahRecognizer
 Quran Identification Sura &amp; Ayah 
