@@ -1,2 +1,2 @@
-# AyahRecognizer
-Quran Recognizer Sura &amp; Ayah 
+# RAQ Project
+Recognizer of the Quran's ayahs
