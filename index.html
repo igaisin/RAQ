@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-    
+
+    <script src="assets/js/speech.js"></script>
     <title>RAQ</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -19,8 +19,8 @@
           <div class="card-inner">
             <h1>Recognition ayah Quran</h1>
             <center>
-              <button id="btnMicStart" onclick="recStart()"><i class="fas fa-microphone-alt"></i></button>
-              <button id="btnMicStop" onclick="recStop()"><i class="fas fa-microphone-alt-slash"></i></button>     
+              <button id="btnMicStart" onclick="speech.start()"><i class="fas fa-microphone-alt"></i></button>
+              <button id="btnMicStop" onclick="speech.stop()"><i class="fas fa-microphone-alt-slash"></i></button>     
             </center>
             
             <p id="speechResult">Нажми на микрофон и читай</p>
@@ -29,6 +29,18 @@
       </div>
     </div>
 
-    <script src="assets/js/speech.js"></script>
+    <script type="text/javascript">
+      var text = document.getElementById('speechResult')
+      var speech = new Speech()
+          .on('start', function () {
+              text.innerHTML = 'Слушаю, читай!'
+          })
+          .on('interimResult', function (msg) {
+              text.innerHTML = msg
+          })
+          .on('finalResult', function (msg) {
+              text.innerHTML = msg
+          })
+  </script>
   </body>
 </html>
